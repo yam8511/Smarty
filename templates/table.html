@@ -1,0 +1,57 @@
+<div class="w3-container">
+    <div class="w3-card-4">
+        <div class="w3-container   w3-blue">
+            <h3>Table Order</h3>
+        </div>
+        <form action="<?= $sendTo ?>" method="post">
+            <div class="w3-row w3-padding">
+                <div class="w3-col m6 s12">
+                    <h2 class="w3-container">選擇桌號</h2>
+                    <?= foreach key=key1 item=item1 from=$table ?>
+                        <input class="w3-radio" type="radio" name="table" value="<?= $item1 ?>">
+                        <label class="w3-validate"><?= $item1 ?></label>
+                    <?= /foreach ?>
+                </div>
+                <div class="w3-col m6 s12">
+                    <h2 class="w3-container">點餐目錄</h2>
+                    <?= foreach key=key1 item=item1 from=$menu ?>
+                    <input class="w3-checkbox" type="checkbox" name="menu[]" value="<?= $item1 ?>">
+                    <label class="w3-validate"><?= $item1 ?></label>
+                    <?= /foreach ?>
+                </div>
+            </div>
+            <div class="w3-section w3-padding">
+                <button class="w3-btn w3-green">點餐</button>
+            </div>
+        </form>
+    </div>
+
+    <h2>Step: <?= $step ?></h2>
+    <div class="w3-card-4">
+        <div class="w3-container   w3-blue">
+            <h3>Table Order</h3>
+        </div>
+        <h2 class="w3-container">解除桌號</h2>
+        <form class="w3-container" action="<?= $sendTo ?>" method="post">
+            <ul class="w3-ul">
+            <?= foreach key=key item=item from=$select ?>
+                <li>
+                    <input class="w3-radio" type="radio" name="order" value="<?= $item ?>">
+                    <label class="w3-validate"><?= $key ?></label>
+                        <ul class="w3-ul">
+                            <?= foreach item=value from=$item ?>
+                                <li>
+                                    <input class="w3-checkbox" type="checkbox" name="cancel" value="<?= $value ?>">
+                                    <label class="w3-validate"><?= $value ?></label>
+                                </li>
+                            <?= /foreach ?>
+                        </ul>
+                </li>
+            <?= /foreach ?>
+            </ul>
+            <div class="w3-section">
+                <button class="w3-btn w3-red">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
